@@ -1,0 +1,14 @@
+@import "./colors";
+body {
+  background: $bodyColor;
+}
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}

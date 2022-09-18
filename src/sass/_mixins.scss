@@ -1,0 +1,19 @@
+@mixin button {
+  border-color: $primaryColor !important;
+  background: transparent !important;
+  color: $textColor !important;
+}
+@mixin fonts {
+  font-family: "Poppins", sans-serif;
+}
+@mixin paragraph {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: #000;
+}
+@mixin heading($size: 24px, $width: 400) {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: $size;
+  font-weight: $width;
+}

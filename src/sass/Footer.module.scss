@@ -1,0 +1,51 @@
+@import "./colors";
+@import "./mixins";
+.footer {
+  padding-top: 50px;
+}
+
+.search {
+  border-color: $primaryColor !important;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgb(203 54 131) !important;
+}
+
+.footer__description {
+  @include paragraph;
+}
+
+.subscribe {
+  @include button;
+  &:hover {
+    background: $primaryColor !important;
+    color: #fff !important;
+  }
+}
+
+.tags {
+  span {
+    display: inline-block;
+    padding: 5px 10px;
+    color: $textColor;
+    margin: 3px;
+    background: $primaryColor;
+    color: $secondaryColor;
+    border-radius: 3px;
+  }
+}
+
+.social {
+  img {
+    width: 40px;
+    height: 40px;
+    margin-right: 7px;
+  }
+}
+.links {
+  li {
+    @include paragraph;
+    color: $textColor;
+  }
+}

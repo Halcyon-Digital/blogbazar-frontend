@@ -1,0 +1,31 @@
+@import "./colors";
+.social_link {
+}
+.link {
+  font-size: 22px;
+  color: $secondaryColor;
+  margin-top: 5px;
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 3px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  transition: all linear 0.4s;
+  &:hover {
+    transform: translateY(-10px);
+    color: $secondaryColor;
+  }
+}
+.facebook {
+  background: #334c8c;
+}
+.twitter {
+  background: #00a6de;
+}
+.linkedin {
+  background: #00a6de;
+}
+.instagram {
+  background: $primaryColor;
+}

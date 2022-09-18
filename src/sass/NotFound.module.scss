@@ -1,0 +1,31 @@
+@import "./mixins";
+@import "./colors";
+
+.notfound {
+  text-align: center;
+  h3 {
+    @include heading(40px, 700);
+  }
+  h4 {
+    @include heading;
+  }
+  h5 {
+    margin-top: 50px;
+    @include heading(22px);
+  }
+  p {
+    @include paragraph;
+  }
+  a {
+    display: inline-block;
+    padding: 7px;
+    background: $primaryColor;
+    color: $secondaryColor;
+    border: 1px solid $primaryColor;
+    transition: all linear 0.3s;
+    &:hover {
+      color: $primaryColor;
+      background: $secondaryColor;
+    }
+  }
+}

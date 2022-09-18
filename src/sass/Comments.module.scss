@@ -1,0 +1,15 @@
+@import "./mixins";
+
+.comment__user {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 110%;
+  }
+}
+.comment {
+  @include paragraph;
+}

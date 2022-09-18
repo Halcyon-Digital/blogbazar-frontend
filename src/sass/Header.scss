@@ -1,0 +1,12 @@
+.marquee-text {
+  font-weight: 100;
+}
+.header-icon {
+  font-size: 18px;
+}
+.cross {
+  transition: all linear 0.4s;
+  &:hover {
+    transform: rotate(90deg);
+  }
+}
