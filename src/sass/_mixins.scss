@@ -1,3 +1,5 @@
+@import "./colors";
+
 @mixin button {
   border-color: $primaryColor !important;
   background: transparent !important;
@@ -16,4 +18,17 @@
   font-family: "Josefin Sans", sans-serif;
   font-size: $size;
   font-weight: $width;
+}
+
+@mixin button {
+  background: $primaryColor;
+  color: $secondaryColor;
+  border: 1px solid $primaryColor;
+  @include fonts;
+  transition: all linear 0.3s;
+
+  &:hover {
+    background: transparent;
+    color: $primaryColor;
+  }
 }

@@ -3,9 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { getBlogById } from "../api/api";
 import Sidebar from "./Sidebar";
 import SingleBlogCard from "./SingleBlogCard";
 

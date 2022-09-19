@@ -1,18 +1,38 @@
+import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { BiComment } from "react-icons/bi";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CommentForm from "./CommentForm";
 import Comments from "./Comments";
 import TimeAgo from "./TimeAgo";
 import Title from "./Title";
+import { toast } from "react-toastify";
 
 function SingleBlogCard({ blog }) {
-  const { image, title, description, createdAt, likes, comments, tags } = blog;
+  const { token } = useSelector((state) => state.auth.user);
+  const { image, title, description, createdAt, likes, comments, tags, _id } =
+    blog;
+
   const [item, setItem] = useState(5);
 
   const increaseItem = () => setItem((prevState) => prevState + 5);
+
+  const handleLike = () => {
+    axios
+      .patch(
+        `${process.env.REACT_APP_PROXY}/api/v1/blogs/like/6326b3c26bd9e9c5f255fcca`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
+      .then((res) => console.log(res));
+  };
+
   return (
     <>
       <div className="bg-white shadow">
@@ -33,7 +53,7 @@ function SingleBlogCard({ blog }) {
             </span>
             <span className="mx-2">-</span>
             <span className="me-1">
-              <AiOutlineLike />
+              <AiOutlineLike onClick={handleLike} />
             </span>
             <span>{likes.length}</span>
             <span className="mx-2">-</span>
@@ -66,7 +86,7 @@ function SingleBlogCard({ blog }) {
             comments
               .slice(0, item)
               .map((comment, index) => (
-                <Comments key={index} comment={comment} />
+                <Comments key={index} comment={comment} blogId={blog._id} />
               ))
           ) : (
             <p>No Search Comments</p>
@@ -84,7 +104,7 @@ function SingleBlogCard({ blog }) {
           )}
         </div>
       </div>
-      <CommentForm />
+      <CommentForm blogId={blog._id} />
     </>
   );
 }

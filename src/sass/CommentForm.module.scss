@@ -8,14 +8,5 @@
 }
 
 .comment__button {
-  background: $primaryColor;
-  color: $secondaryColor;
-  border: 1px solid $primaryColor;
-  @include fonts;
-  transition: all linear 0.3s;
-
-  &:hover {
-    background: transparent;
-    color: $primaryColor;
-  }
+  @include button;
 }

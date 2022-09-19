@@ -12,7 +12,7 @@ function RecentPost() {
     <div>
       <Title name="Recent Posts" />
       <ScrollContainer>
-        <section style={{ height: "300px" }}>
+        <section style={{ height: "320px" }}>
           {data &&
             data
               .slice(-4)
