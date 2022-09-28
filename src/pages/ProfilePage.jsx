@@ -1,11 +1,11 @@
 import React from "react";
-import Profile from "../components/Profile";
+import ProfileMain from "../components/ProfileMain";
 import Layout from "../shared/Layout";
 
 function ProfilePage() {
   return (
     <Layout>
-      <Profile />
+      <ProfileMain />
     </Layout>
   );
 }

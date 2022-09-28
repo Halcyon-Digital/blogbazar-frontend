@@ -11,6 +11,11 @@
     color: $primaryColor;
   }
 
+  a {
+    color: $primaryColor;
+    @include paragraph;
+  }
+
   input {
     width: 100%;
     margin-bottom: 10px;

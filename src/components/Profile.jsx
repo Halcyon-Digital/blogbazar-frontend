@@ -1,10 +1,9 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout, reset } from "../features/auth/authSlice";
 
-function Profile() {
-  const { userName, email } = useSelector((state) => state.auth.user);
+function Profile({ avatar, userName, email }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -15,7 +14,11 @@ function Profile() {
   };
 
   return (
-    <div>
+    <div className="shadow bg-white">
+      <img
+        src={`${process.env.REACT_APP_PROXY}/files/${avatar}`}
+        alt="profile"
+      />
       <h3>{userName}</h3>
       <p>{email}</p>
       <button onClick={onLogout}>Logout</button>

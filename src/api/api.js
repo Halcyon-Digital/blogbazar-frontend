@@ -13,3 +13,16 @@ export const getBlogById = async (blogId) => {
   const data = res.data;
   return data;
 };
+
+export const getMe = async (token) => {
+  const res = await axios.get(
+    `${process.env.REACT_APP_PROXY}/api/v1/users/me`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  const data = res.data;
+  return data;
+};

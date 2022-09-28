@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Style from "../sass/Login.module.scss";
 import { login, reset } from "../features/auth/authSlice";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
@@ -71,6 +72,10 @@ function Login() {
                 onChange={handleChange}
                 placeholder="Your Password"
               />
+              <div className="my-1 d-flex justify-content-between">
+                <Link to="/register">Register</Link>
+                <Link to="/forget">Forget Password</Link>
+              </div>
               <button className={Style.submit} type="submit">
                 Login
               </button>
