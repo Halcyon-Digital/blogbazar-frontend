@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout, reset } from "../features/auth/authSlice";
+import Style from "../sass/Profile.module.scss";
 
 function Profile({ avatar, userName, email }) {
   const dispatch = useDispatch();
@@ -18,10 +19,13 @@ function Profile({ avatar, userName, email }) {
       <img
         src={`${process.env.REACT_APP_PROXY}/files/${avatar}`}
         alt="profile"
+        className="w-100"
       />
-      <h3>{userName}</h3>
-      <p>{email}</p>
-      <button onClick={onLogout}>Logout</button>
+      <div className={Style.profile}>
+        <h3>{userName}</h3>
+        <p>Email: {email}</p>
+        <button onClick={onLogout}>Logout</button>
+      </div>
     </div>
   );
 }

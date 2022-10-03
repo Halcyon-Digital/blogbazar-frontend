@@ -10,6 +10,7 @@ import Comments from "./Comments";
 import TimeAgo from "./TimeAgo";
 import Title from "./Title";
 import { toast } from "react-toastify";
+import Style from "../sass/SingleBlogCard.module.scss";
 
 function SingleBlogCard({ blog }) {
   const { token } = useSelector((state) => state.auth.user);
@@ -22,15 +23,19 @@ function SingleBlogCard({ blog }) {
 
   const handleLike = () => {
     axios
-      .patch(
-        `${process.env.REACT_APP_PROXY}/api/v1/blogs/like/6326b3c26bd9e9c5f255fcca`,
+      .put(
+        `${process.env.REACT_APP_PROXY}/api/v1/blogs/like/${_id}`,
+        {},
         {
           headers: {
-            Authorization: token,
+            Authorization: `Bearer ${token}`,
           },
         }
       )
-      .then((res) => console.log(res));
+      .then((res) => {
+        toast.success(res.data.message);
+      })
+      .catch((err) => toast.error(err.response.data.message));
   };
 
   return (
@@ -41,7 +46,7 @@ function SingleBlogCard({ blog }) {
           src={`${process.env.REACT_APP_PROXY}/files/${image}`}
           alt="blog"
         />
-        <div className="p-3">
+        <div className={`${Style.blog_content} p-3`}>
           <h4 className="text-center mt-4">{title}</h4>
           <p className="text-center">
             <TimeAgo timeStamp={createdAt} />

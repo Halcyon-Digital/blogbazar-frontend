@@ -1,0 +1,14 @@
+@import "./colors";
+@import "./mixins";
+.blog_content {
+  h4 {
+    @include heading(32px, 700);
+    color: $primaryColor;
+  }
+  p {
+    @include paragraph;
+  }
+  h6 {
+    @include heading(20px);
+  }
+}
